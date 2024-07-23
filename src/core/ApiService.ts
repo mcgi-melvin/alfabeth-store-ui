@@ -2,8 +2,7 @@ import axios from "axios";
 
 export default class ApiService {
     static init() {
-        // axios.defaults.baseURL = 'http://localhost:3001/'
-        axios.defaults.baseURL = 'http://192.168.56.1:3001/'
+        axios.defaults.baseURL = import.meta.env.VITE_API_URL
         axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded'
         axios.defaults.headers.get['Content-Type'] = 'application/x-www-form-urlencoded'
 

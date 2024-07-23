@@ -1,9 +1,10 @@
 import {useToast} from "primevue/usetoast";
 
+
 export const useToastService  = () => {
     const toast = useToast()
 
-    const showToast = ( severity : string = "warn", summary : string, detail : string ) => {
+    const showToast = ( severity : any, summary : string, detail : string ) => {
         toast.add({ severity: severity, summary: summary, detail: detail, closable: false, life: 3000 })
     }
 

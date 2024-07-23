@@ -12,7 +12,13 @@ export default [
             {
                 path: "transaction",
                 name: "store-transaction",
+                redirect: { name: "store-transaction-list" },
                 children: [
+                    {
+                        path: "list",
+                        name: "store-transaction-list",
+                        component: () => import("@/views/store/transaction/TransactionList.vue")
+                    },
                     {
                         path: ":id",
                         name: "store-transaction-view",

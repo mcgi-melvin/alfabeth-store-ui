@@ -6,7 +6,9 @@ import {ref} from "vue";
 export const useTransactionService = defineStore("useTransactionService", () => {
     const
         store = useStore(),
-        transaction = ref({})
+        transaction = ref({}),
+        list = ref([]),
+        loading = ref(false);
 
     async function get(id : string) {
         try {
@@ -17,5 +19,17 @@ export const useTransactionService = defineStore("useTransactionService", () => 
         }
     }
 
-    return { transaction, get }
+    async function getAll() {
+        loading.value = true
+        try {
+            const res = await ApiService.get(`/transactions`)
+            list.value = res.data
+        } catch (e) {
+            console.log( e )
+        } finally {
+            loading.value = false
+        }
+    }
+
+    return { transaction, list, getAll, get }
 })

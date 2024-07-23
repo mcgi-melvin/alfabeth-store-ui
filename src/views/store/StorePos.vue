@@ -18,7 +18,7 @@ const
     store = useStore(),
     product = useProduct(),
     transaction = useTransaction(),
-    modal = ref({
+    modal = ref<string | any>({
         productSettings: false,
         addToCart: false,
         finalizeTransaction: false,
@@ -246,7 +246,9 @@ const openModal = (item : object, modalComponent : string) => {
             </div>
         </template>
     </StoreLayout>
-    <ModalAddToCart v-model:visible="modal.addToCart" v-model:item="modal.selectedItem" />
+    <template v-if="modal.addToCart">
+        <ModalAddToCart v-model:visible="modal.addToCart" v-model:item="modal.selectedItem" />
+    </template>
     <ModalProductSettings v-model:visible="product.modal.settings" v-model:item="product.selectedItem" />
     <ModalFinalizeTransaction v-model:visible="modal.finalizeTransaction" v-model:transaction="modal.selectedItem" />
 </template>

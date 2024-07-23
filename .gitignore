@@ -33,3 +33,6 @@ test-results/
 playwright-report/
 
 /node_modules
+
+.env.development
+.env.production

@@ -32,7 +32,7 @@ defineProps(['transaction_id', 'payment', 'total', 'products'])
                 </tr>
             </thead>
             <tbody>
-                <tr v-for="(item) in products">
+                <tr v-for="(item) in products" :key="item.ID">
                     <td>{{ item.product_name }}</td>
                     <td style="text-align: right">{{ item.quantity }}</td>
                     <td style="text-align: right">P{{ item.price * (item.quantity ?? 1) }}</td>

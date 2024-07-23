@@ -29,6 +29,7 @@ const
                 }
             ]
         },
+        /*
         {
             label: "Snacks",
             icon: "pi pi-heart-fill",
@@ -43,6 +44,7 @@ const
                 }
             ]
         }
+         */
     ])
 </script>
 
